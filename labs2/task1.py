@@ -8,8 +8,7 @@ plt.xlabel('Parametr X')
 plt.ylabel('Parametr Y')
 plt.title('Wykres - XY')
 
-
-plt.plot(x, y1, linestyle = 'dashed', marker = '^', color = 'red', label = 'funkcja1')
-plt.plot(x, y2, linestyle = 'dashed', marker = 'o', color = 'green', label = 'funkcja2')
-plt.legend(numpoints = 2)
+plt.plot(x, y1, linestyle='dashed', marker='^', color='red', label='funkcja1')
+plt.plot(x, y2, linestyle='dashed', marker='o', color='green', label='funkcja2')
+plt.legend(numpoints=2)
 plt.show()

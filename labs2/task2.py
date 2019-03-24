@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 
 with open('scatter.txt') as f:
-  lines = f.readlines()
+    lines = f.readlines()
 
 x = [float(i) for i in lines[0].split()]
 y = [float(i) for i in lines[1].split()]
