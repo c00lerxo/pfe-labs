@@ -1,13 +1,15 @@
 import matplotlib.pyplot as plt
+from matplotlib import cm
 
-with open('scatter.txt') as f:
-  lines = f.readlines()
+with open('pie.txt') as f:
+  data = f.readlines()
 
-x = [float(i) for i in lines[0].split()]
-y = [float(i) for i in lines[1].split()]
+x = [float(i) for i in data[0].split()]
 
 fig = plt.figure()
-ax = fig.add_subplot(111, projection='polar')
-c = ax.scatter(x, y, c=y, cmap='hsv', alpha=0.75)
-
+explode = (0.1, 0.04, 0.15, 0.2, 0.18)
+ax = fig.add_subplot(111)
+pie = ax.pie(x, explode = explode,
+            wedgeprops = {"edgecolor":"black", 'linewidth': 0.5, 'antialiased': True})
+            
 plt.show()

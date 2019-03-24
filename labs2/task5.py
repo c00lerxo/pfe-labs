@@ -1,24 +1,20 @@
 import matplotlib.pyplot as plt
+import numpy as np
 from matplotlib import cm
+import random
 
-with open('bars.txt') as f:
-  lines = f.readlines()
+with open('data2.dat') as f:
+  data = f.readlines()
 
-x = [float(i) for i in lines[0].split()]
-y = [float(i) for i in lines[1].split()]
+x = [float(i) for i in data]
 
-color = cm.copper(y)
+cmap = np.random.rand(3,)
 
 fig = plt.figure()
-ax = fig.add_subplot(111)
-rects = ax.bar(x, y, color = color)
+ax1 = fig.add_subplot(121)
+hist1 = ax1.hist(x, bins = 250, cumulative = True, color = cmap)
 
-for rect in rects:
-    height = rect.get_height()
-    ax.text(rect.get_x() + rect.get_width()/2.,
-            1.005*height,
-            '%.2f' % float(height),
-            ha='center',
-            va='bottom')
+ax2 = fig.add_subplot(122)
+hist2 = ax2.hist(x, bins = 250, cumulative = False, color = cmap)
 
 plt.show()

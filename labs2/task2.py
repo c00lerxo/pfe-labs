@@ -1,17 +1,13 @@
 import matplotlib.pyplot as plt
-import numpy as np
 
-with open('scatter.txt') as file:
-    content = file.readlines()
+with open('scatter.txt') as f:
+  lines = f.readlines()
 
-data = [line for line in content]
-x = data[0].split()
-y = data[1].split()
+x = [float(i) for i in lines[0].split()]
+y = [float(i) for i in lines[1].split()]
 
-x = [float(i) for i in x]
-y = [float(i) for i in y]
-
-ax = plt.axes(polar = True)
-plt.scatter(x, y)
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='polar')
+c = ax.scatter(x, y, c=y, cmap='hsv', alpha=0.75)
 
 plt.show()
